@@ -1,0 +1,900 @@
+{
+ "matriz": {
+  "eixos": [
+   {
+    "sigla": "DL",
+    "nome": "Dominar linguagens"
+   },
+   {
+    "sigla": "CF",
+    "nome": "Compreender fenomenos"
+   },
+   {
+    "sigla": "SP",
+    "nome": "Enfrentar situacoes-problema"
+   },
+   {
+    "sigla": "CA",
+    "nome": "Construir argumentacao"
+   },
+   {
+    "sigla": "EP",
+    "nome": "Elaborar propostas"
+   }
+  ],
+  "areas": [
+   {
+    "id": "LC",
+    "nome": "Linguagens, Codigos e suas Tecnologias",
+    "competencias": 9,
+    "habilidades": 30,
+    "objetos": 8
+   },
+   {
+    "id": "MT",
+    "nome": "Matemática e suas Tecnologias",
+    "competencias": 7,
+    "habilidades": 30,
+    "objetos": 5
+   },
+   {
+    "id": "CN",
+    "nome": "Ciências da Natureza e suas Tecnologias",
+    "competencias": 8,
+    "habilidades": 30,
+    "objetos": 18
+   },
+   {
+    "id": "CH",
+    "nome": "Ciências Humanas e suas Tecnologias",
+    "competencias": 6,
+    "habilidades": 30,
+    "objetos": 4
+   }
+  ],
+  "resumo": {
+   "total_areas": 4,
+   "total_competencias": 30,
+   "total_habilidades": 120
+  },
+  "nota_uso": "Unidade de classificacao = habilidade. Chave unica = campo 'id' (area + codigo), pois os codigos H1-H30 se repetem entre as quatro areas. O campo 'texto_embedding' e o texto recomendado para gerar o vetor da habilidade. Os eixos cognitivos e os objetos de conhecimento sao camadas auxiliares e nao devem ser usados isoladamente como alvo de classificacao.",
+  "fonte_abnt": "{BRASIL. Instituto Nacional de Estudos e Pesquisas Educacionais Anisio Teixeira (Inep). Matriz de Referencia ENEM. Brasilia, DF: Inep.}",
+  "versao": "Matriz de Referencia do ENEM (estrutura vigente desde 2009)"
+ },
+ "escada": {
+  "janela": "ENEM 2023",
+  "n_referencia": 178,
+  "condicoes": [
+   {
+    "id": "acaso",
+    "rotulo": "Acaso",
+    "familia": "piso",
+    "detalhe": "1 e 5 em 30 candidatas",
+    "n": null,
+    "top1": 3.33,
+    "top5": 16.67,
+    "custo": "não se aplica",
+    "local": null,
+    "treina": false,
+    "arquivo": "analítico (campo acaso_top1)"
+   },
+   {
+    "id": "lexical",
+    "rotulo": "Lexical TF-IDF",
+    "familia": "lexical",
+    "detalhe": "frequência de termos ponderada pelo inverso da frequência em documentos",
+    "n": 178,
+    "top1": 11.8,
+    "top5": 32.58,
+    "custo": "zero",
+    "local": true,
+    "treina": false,
+    "arquivo": "comparacao_familias_itens_2021_2024.json",
+    "area": {
+     "LC": {
+      "top1": 20.0,
+      "top5": 46.67,
+      "n": 45
+     },
+     "CH": {
+      "top1": 4.44,
+      "top5": 13.33,
+      "n": 45
+     },
+     "CN": {
+      "top1": 11.11,
+      "top5": 33.33,
+      "n": 45
+     },
+     "MT": {
+      "top1": 11.63,
+      "top5": 37.21,
+      "n": 43
+     }
+    },
+    "acertos1": 21,
+    "acertos5": 58,
+    "pior1": 11.8,
+    "pior5": 32.58
+   },
+   {
+    "id": "bgeA",
+    "rotulo": "Vetorial · Forma A",
+    "familia": "vetorial",
+    "ancora": "texto do descritor",
+    "detalhe": "BGE-M3 em inferência; alvo = texto do descritor na matriz",
+    "n": 178,
+    "top1": 15.73,
+    "top5": 43.82,
+    "custo": "zero",
+    "local": true,
+    "treina": false,
+    "arquivo": "comparacao_familias_itens_2021_2024.json",
+    "area": {
+     "LC": {
+      "top1": 8.89,
+      "top5": 40.0,
+      "n": 45
+     },
+     "CH": {
+      "top1": 15.56,
+      "top5": 46.67,
+      "n": 45
+     },
+     "CN": {
+      "top1": 20.0,
+      "top5": 44.44,
+      "n": 45
+     },
+     "MT": {
+      "top1": 18.6,
+      "top5": 44.19,
+      "n": 43
+     }
+    },
+    "acertos1": 28,
+    "acertos5": 78,
+    "pior1": 15.73,
+    "pior5": 43.82
+   },
+   {
+    "id": "bgeB",
+    "rotulo": "Vetorial · Forma B",
+    "familia": "vetorial",
+    "ancora": "descritor + objetos de conhecimento",
+    "detalhe": "BGE-M3 em inferência; alvo = descritor somado aos objetos da área",
+    "n": 178,
+    "top1": 15.73,
+    "top5": 41.57,
+    "custo": "zero",
+    "local": true,
+    "treina": false,
+    "arquivo": "comparacao_familias_itens_2021_2024.json",
+    "area": {
+     "LC": {
+      "top1": 11.11,
+      "top5": 42.22,
+      "n": 45
+     },
+     "CH": {
+      "top1": 15.56,
+      "top5": 37.78,
+      "n": 45
+     },
+     "CN": {
+      "top1": 17.78,
+      "top5": 44.44,
+      "n": 45
+     },
+     "MT": {
+      "top1": 18.6,
+      "top5": 41.86,
+      "n": 43
+     }
+    },
+    "acertos1": 28,
+    "acertos5": 74,
+    "pior1": 15.73,
+    "pior5": 41.57
+   },
+   {
+    "id": "bgeC",
+    "rotulo": "Vetorial · Forma C",
+    "familia": "vetorial",
+    "ancora": "centroide dos itens do exame",
+    "detalhe": "BGE-M3 em inferência; alvo = centroide dos itens do ENEM da habilidade, com edição retida",
+    "n": 178,
+    "top1": 19.66,
+    "top5": 60.67,
+    "custo": "zero",
+    "local": true,
+    "treina": true,
+    "arquivo": "validacao_forma_c_ano_retido.json",
+    "area": {
+     "LC": {
+      "top1": 17.78,
+      "top5": 68.89,
+      "n": 45
+     },
+     "CH": {
+      "top1": 22.22,
+      "top5": 51.11,
+      "n": 45
+     },
+     "CN": {
+      "top1": 22.22,
+      "top5": 71.11,
+      "n": 45
+     },
+     "MT": {
+      "top1": 16.28,
+      "top5": 51.16,
+      "n": 43
+     }
+    },
+    "acertos1": 35,
+    "acertos5": 108,
+    "pior1": 19.66,
+    "pior5": 60.67
+   },
+   {
+    "id": "qwen8",
+    "rotulo": "Generativa local · qwen3:8b",
+    "familia": "generativa_local",
+    "detalhe": "pesos abertos, 8B, Ollama em infraestrutura própria",
+    "n": 175,
+    "top1": 23.43,
+    "top5": 51.43,
+    "custo": "zero de API",
+    "local": true,
+    "treina": false,
+    "arquivo": "aberto_itens_inep_2023_qwen3-8b.json",
+    "area": {
+     "LC": {
+      "top1": 11.11,
+      "top5": 35.56,
+      "n": 45
+     },
+     "CH": {
+      "top1": 17.78,
+      "top5": 53.33,
+      "n": 45
+     },
+     "CN": {
+      "top1": 33.33,
+      "top5": 62.22,
+      "n": 45
+     },
+     "MT": {
+      "top1": 32.5,
+      "top5": 55.0,
+      "n": 40
+     }
+    },
+    "acertos1": 41,
+    "acertos5": 90,
+    "pior1": 23.03,
+    "pior5": 50.56
+   },
+   {
+    "id": "qwen14",
+    "rotulo": "Generativa local · qwen3:14b",
+    "familia": "generativa_local",
+    "detalhe": "pesos abertos, 14B, Ollama em infraestrutura própria",
+    "n": 177,
+    "top1": 29.38,
+    "top5": 60.45,
+    "custo": "zero de API",
+    "local": true,
+    "treina": false,
+    "arquivo": "aberto_itens_inep_2023_qwen3-14b.json",
+    "area": {
+     "LC": {
+      "top1": 24.44,
+      "top5": 42.22,
+      "n": 45
+     },
+     "CH": {
+      "top1": 24.44,
+      "top5": 64.44,
+      "n": 45
+     },
+     "CN": {
+      "top1": 35.56,
+      "top5": 68.89,
+      "n": 45
+     },
+     "MT": {
+      "top1": 33.33,
+      "top5": 66.67,
+      "n": 42
+     }
+    },
+    "acertos1": 52,
+    "acertos5": 107,
+    "pior1": 29.21,
+    "pior5": 60.11
+   },
+   {
+    "id": "gpt",
+    "rotulo": "Generativa proprietária · gpt-5.5",
+    "familia": "generativa_api",
+    "detalhe": "modelo proprietário por API, snapshot datado 2026-04-23",
+    "n": 178,
+    "top1": 41.01,
+    "top5": 78.09,
+    "custo": "pago por token",
+    "local": false,
+    "treina": false,
+    "arquivo": "generativo_itens_inep_2023.json",
+    "area": {
+     "LC": {
+      "top1": 37.78,
+      "top5": 84.44,
+      "n": 45
+     },
+     "CH": {
+      "top1": 37.78,
+      "top5": 75.56,
+      "n": 45
+     },
+     "CN": {
+      "top1": 51.11,
+      "top5": 80.0,
+      "n": 45
+     },
+     "MT": {
+      "top1": 37.21,
+      "top5": 72.09,
+      "n": 43
+     }
+    },
+    "acertos1": 73,
+    "acertos5": 139,
+    "pior1": 41.01,
+    "pior5": 78.09
+   }
+  ],
+  "co_prova": {
+   "LC": "1201",
+   "CH": "1191",
+   "CN": "1221",
+   "MT": "1211"
+  },
+  "candidatos_por_area": 30
+ },
+ "soberania": {
+  "local_top1": 29.38,
+  "api_top1": 41.01,
+  "razao_top1": 71.6,
+  "local_top5": 60.45,
+  "api_top5": 78.09,
+  "razao_top5": 77.4,
+  "abre_mao_top1": 28.4,
+  "abre_mao_top5": 22.6,
+  "ganho_8b_14b": 5.95,
+  "tokens_api": {
+   "entrada": 464843,
+   "saida": 87334
+  },
+  "tokens_api_n": 178,
+  "tokens_local": {
+   "entrada": 563998,
+   "saida": 205441,
+   "entrada_cache": 503301,
+   "cache_escrito": 0
+  },
+  "tokens_local_n": 177,
+  "endpoint_local": "http://100.125.67.86:11434/v1"
+ },
+ "armadilha": {
+  "circular": {
+   "top1": 96.49,
+   "top5": 99.77,
+   "n": 884,
+   "aviso": "INVALIDO como medida: o item testado esta no proprio centroide. So dimensiona a circularidade."
+  },
+  "honesto": {
+   "top1": 21.49,
+   "top5": 57.81,
+   "n": 884
+  },
+  "margem": {
+   "o_que_e": "diferença de similaridade entre o primeiro e o segundo colocado, na condição de embeddings. Mede fragilidade do ordenamento, não acerto.",
+   "n": 706,
+   "mediana_geral": 0.0049,
+   "acertos": {
+    "n": 110,
+    "mediana": 0.0062
+   },
+   "erros": {
+    "n": 596,
+    "mediana": 0.0047
+   },
+   "acertos_por_faixa_de_margem": {
+    "menor_que_0.001": 11,
+    "menor_que_0.003": 26,
+    "menor_que_0.005": 44
+   },
+   "pct_acertos_abaixo_0005": 40.0
+  }
+ },
+ "controle": {
+  "ano": 2025,
+  "por_area": {
+   "LC": {
+    "regular": "1459",
+    "provas": {
+     "1459": {
+      "top1": 15.56,
+      "n": 45,
+      "replica": true
+     },
+     "1529": {
+      "top1": 0.0,
+      "n": 45,
+      "replica": false
+     },
+     "1549": {
+      "top1": 0.0,
+      "n": 45,
+      "replica": false
+     }
+    }
+   },
+   "CH": {
+    "regular": "1447",
+    "provas": {
+     "1447": {
+      "top1": 17.78,
+      "n": 45,
+      "replica": true
+     },
+     "1520": {
+      "top1": 4.44,
+      "n": 45,
+      "replica": false
+     },
+     "1539": {
+      "top1": 2.27,
+      "n": 44,
+      "replica": false
+     }
+    }
+   },
+   "CN": {
+    "regular": "1483",
+    "provas": {
+     "1511": {
+      "top1": 8.89,
+      "n": 45,
+      "replica": false
+     },
+     "1483": {
+      "top1": 23.81,
+      "n": 42,
+      "replica": true
+     },
+     "1569": {
+      "top1": 2.22,
+      "n": 45,
+      "replica": false
+     }
+    }
+   },
+   "MT": {
+    "regular": "1471",
+    "provas": {
+     "1502": {
+      "top1": 2.22,
+      "n": 45,
+      "replica": false
+     },
+     "1559": {
+      "top1": 4.44,
+      "n": 45,
+      "replica": false
+     },
+     "1471": {
+      "top1": 18.6,
+      "n": 43,
+      "replica": true
+     }
+    }
+   }
+  },
+  "o_que_e": "cada ano tem três aplicações, cada uma com seu CO_PROVA. Os cadernos extraídos são da regular impressa, identificada empiricamente por maior concordância. As demais aplicações servem de controle: devem cair para perto do acaso, porque a mesma posição no caderno corresponde a outro item."
+ },
+ "tempo": {
+  "serie": [
+   {
+    "ano": 2021,
+    "n": 176,
+    "lexical": 15.34,
+    "bgeA": 14.77,
+    "bgeB": 13.07,
+    "lexical5": 34.66,
+    "bgeA5": 43.75,
+    "bgeB5": 40.91
+   },
+   {
+    "ano": 2022,
+    "n": 173,
+    "lexical": 10.98,
+    "bgeA": 16.18,
+    "bgeB": 15.03,
+    "lexical5": 30.64,
+    "bgeA5": 43.93,
+    "bgeB5": 45.66
+   },
+   {
+    "ano": 2023,
+    "n": 178,
+    "lexical": 11.8,
+    "bgeA": 15.73,
+    "bgeB": 15.73,
+    "lexical5": 32.58,
+    "bgeA5": 43.82,
+    "bgeB5": 41.57
+   },
+   {
+    "ano": 2024,
+    "n": 179,
+    "lexical": 8.94,
+    "bgeA": 15.64,
+    "bgeB": 17.88,
+    "lexical5": 26.82,
+    "bgeA5": 45.81,
+    "bgeB5": 41.34
+   },
+   {
+    "ano": 2025,
+    "n": 175,
+    "lexical": 15.43,
+    "bgeA": 18.86,
+    "bgeB": 21.14,
+    "lexical5": 40.0,
+    "bgeA5": 45.71,
+    "bgeB5": 47.43
+   }
+  ],
+  "agregado_2021_2024": {
+   "embeddings_top1": 15.58,
+   "embeddings_top5": 44.33,
+   "embeddings_B_top1": 15.44,
+   "embeddings_B_top5": 42.35,
+   "lexical_top1": 11.76,
+   "lexical_top5": 31.16
+  },
+  "agregado_2025": {
+   "embeddings_top1": 18.86,
+   "embeddings_top5": 45.71,
+   "embeddings_B_top1": 21.14,
+   "embeddings_B_top5": 47.43,
+   "lexical_top1": 15.43,
+   "lexical_top5": 40.0
+  }
+ },
+ "microdados": {
+  "itens_por_ano": {
+   "2020": 576,
+   "2021": 393,
+   "2022": 373,
+   "2023": 379,
+   "2024": 379,
+   "2025": 559
+  },
+  "total": 2659
+ },
+ "meta": {
+  "gerado_em": "2026-10-12",
+  "janela_canonica": 2023,
+  "fontes": [
+   "BRASIL. Inep. Microdados do ENEM, 2020-2025, arquivo ITENS_PROVA.",
+   "BRASIL. Inep. Matriz de Referencia do ENEM."
+  ]
+ },
+ "generativos": {
+  "janela": "2020 a 2024",
+  "series": {
+   "qwen8": {
+    "modelo": "qwen3:8b",
+    "arquivo": "aberto_itens_inep_2020_2024_qwen3-8b.json",
+    "agregado": {
+     "n": 879,
+     "top1": 22.53,
+     "top5": 55.4
+    },
+    "por_ano": [
+     {
+      "ano": 2020,
+      "n": 177,
+      "top1": 18.08,
+      "top5": 48.59
+     },
+     {
+      "ano": 2021,
+      "n": 175,
+      "top1": 25.71,
+      "top5": 62.86
+     },
+     {
+      "ano": 2022,
+      "n": 172,
+      "top1": 20.35,
+      "top5": 57.56
+     },
+     {
+      "ano": 2023,
+      "n": 178,
+      "top1": 23.6,
+      "top5": 51.12
+     },
+     {
+      "ano": 2024,
+      "n": 177,
+      "top1": 24.86,
+      "top5": 57.06
+     }
+    ]
+   },
+   "qwen14": {
+    "modelo": "qwen3:14b",
+    "arquivo": "aberto_itens_inep_2020_2024_qwen3-14b.json",
+    "agregado": {
+     "n": 877,
+     "top1": 27.82,
+     "top5": 60.66
+    },
+    "por_ano": [
+     {
+      "ano": 2020,
+      "n": 177,
+      "top1": 20.34,
+      "top5": 52.54
+     },
+     {
+      "ano": 2021,
+      "n": 174,
+      "top1": 33.33,
+      "top5": 63.79
+     },
+     {
+      "ano": 2022,
+      "n": 173,
+      "top1": 27.75,
+      "top5": 59.54
+     },
+     {
+      "ano": 2023,
+      "n": 177,
+      "top1": 29.38,
+      "top5": 60.45
+     },
+     {
+      "ano": 2024,
+      "n": 176,
+      "top1": 28.41,
+      "top5": 67.05
+     }
+    ]
+   }
+  },
+  "gpt": {
+   "modelo": "gpt-5.5-2026-04-23",
+   "ano": 2023,
+   "n": 178,
+   "top1": 41.01,
+   "top5": 78.09,
+   "tokens": {
+    "entrada": 464843,
+    "saida": 87334
+   },
+   "motivo": "rodou apenas na edição de 2023: o crédito da conta esgotou ao fim da segunda rodada"
+  },
+  "nota_n": "o recorte de 2023 desta série vem da rodada multi-ano; para o qwen3:8b ela traz n=178 e 23,60%, enquanto a rodada usada na escada traz n=175 e 23,43%. O qwen3:14b coincide nas duas (n=177, 29,38%)."
+ },
+ "ancoras": {
+  "exemplo_codigo": "H15",
+  "exemplo_area": "LC",
+  "exemplo_texto": "Estabelecer relacoes entre o texto literario e o momento de sua producao, situando aspectos do contexto historico, social e politico.",
+  "objetos_LC": [
+   {
+    "disciplina": null,
+    "tema": "Estudo do texto",
+    "conteudo": "as sequências discursivas e os gêneros textuais no sistema de comunicação e informação; modos de organização da composição textual; atividades de produção escrita e de leitura de textos gerados nas diferentes esferas sociais, públicas e privadas."
+   },
+   {
+    "disciplina": "Educacao Fisica",
+    "tema": "Estudo das práticas corporais",
+    "conteudo": "a linguagem corporal como integradora social e formadora de identidade; performance corporal e identidades juvenis; vivência crítica e emancipada do lazer; mitos e verdades sobre os corpos; exercício físico e saúde; o corpo e a expressão artística e cultural; práticas corporais e autonomia; condicionamentos e esforços físicos; o esporte, a dança, as lutas, os jogos, as brincadeiras."
+   },
+   {
+    "disciplina": "Artes",
+    "tema": "Produção e recepção de textos artísticos",
+    "conteudo": "interpretacao e representacao do mundo nas Artes Visuais, Teatro, Musica e Danca; estrutura morfologica e sintatica, contexto da obra artistica e da comunidade, fontes de criacao; inclusao, diversidade e multiculturalidade nas producoes esteticas e artisticas."
+   },
+   {
+    "disciplina": "Literatura",
+    "tema": "Estudo do texto literário",
+    "conteudo": "relações entre produção literária e processo social; concepções artísticas; procedimentos de construção e recepção de textos; formacao literaria e nacional; patrimônio literário nacional; dialética cosmopolitismo/localismo; continuidade e ruptura entre momentos da literatura brasileira; gêneros épico/narrativo, lírico e dramático; relações entre literatura, outras artes e outros saberes."
+   }
+  ],
+  "itens_por_habilidade": {
+   "mediana": 7,
+   "min": 4,
+   "max": 14,
+   "total": 884,
+   "nota": "centroide construído com quatro edições e testado na quinta"
+  }
+ },
+ "serie_unificada": {
+  "anos": [
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ],
+  "linhas": [
+   {
+    "ano": 2020,
+    "qwen8": {
+     "top1": 18.08,
+     "top5": 48.59,
+     "n": 177
+    },
+    "qwen14": {
+     "top1": 20.34,
+     "top5": 52.54,
+     "n": 177
+    }
+   },
+   {
+    "ano": 2021,
+    "lexical": {
+     "top1": 15.34,
+     "top5": 34.66,
+     "n": 176
+    },
+    "bgeA": {
+     "top1": 14.77,
+     "top5": 43.75,
+     "n": 176
+    },
+    "bgeB": {
+     "top1": 13.07,
+     "top5": 40.91,
+     "n": 176
+    },
+    "qwen8": {
+     "top1": 25.71,
+     "top5": 62.86,
+     "n": 175
+    },
+    "qwen14": {
+     "top1": 33.33,
+     "top5": 63.79,
+     "n": 174
+    }
+   },
+   {
+    "ano": 2022,
+    "lexical": {
+     "top1": 10.98,
+     "top5": 30.64,
+     "n": 173
+    },
+    "bgeA": {
+     "top1": 16.18,
+     "top5": 43.93,
+     "n": 173
+    },
+    "bgeB": {
+     "top1": 15.03,
+     "top5": 45.66,
+     "n": 173
+    },
+    "qwen8": {
+     "top1": 20.35,
+     "top5": 57.56,
+     "n": 172
+    },
+    "qwen14": {
+     "top1": 27.75,
+     "top5": 59.54,
+     "n": 173
+    }
+   },
+   {
+    "ano": 2023,
+    "lexical": {
+     "top1": 11.8,
+     "top5": 32.58,
+     "n": 178
+    },
+    "bgeA": {
+     "top1": 15.73,
+     "top5": 43.82,
+     "n": 178
+    },
+    "bgeB": {
+     "top1": 15.73,
+     "top5": 41.57,
+     "n": 178
+    },
+    "qwen8": {
+     "top1": 23.6,
+     "top5": 51.12,
+     "n": 178
+    },
+    "qwen14": {
+     "top1": 29.38,
+     "top5": 60.45,
+     "n": 177
+    },
+    "gpt": {
+     "top1": 41.01,
+     "top5": 78.09,
+     "n": 178
+    }
+   },
+   {
+    "ano": 2024,
+    "lexical": {
+     "top1": 8.94,
+     "top5": 26.82,
+     "n": 179
+    },
+    "bgeA": {
+     "top1": 15.64,
+     "top5": 45.81,
+     "n": 179
+    },
+    "bgeB": {
+     "top1": 17.88,
+     "top5": 41.34,
+     "n": 179
+    },
+    "qwen8": {
+     "top1": 24.86,
+     "top5": 57.06,
+     "n": 177
+    },
+    "qwen14": {
+     "top1": 28.41,
+     "top5": 67.05,
+     "n": 176
+    }
+   },
+   {
+    "ano": 2025,
+    "lexical": {
+     "top1": 15.43,
+     "top5": 40.0,
+     "n": 175
+    },
+    "bgeA": {
+     "top1": 18.86,
+     "top5": 45.71,
+     "n": 175
+    },
+    "bgeB": {
+     "top1": 21.14,
+     "top5": 47.43,
+     "n": 175
+    }
+   }
+  ],
+  "cobertura": {
+   "lexical": "2021 a 2025",
+   "bgeA": "2021 a 2025",
+   "bgeB": "2021 a 2025",
+   "qwen8": "2020 a 2024",
+   "qwen14": "2020 a 2024",
+   "gpt": "2023"
+  },
+  "nota": "cada condição é desenhada apenas nas edições em que rodou. O gpt-5.5 rodou só em 2023: o crédito da conta esgotou ao fim da segunda rodada. O recorte de 2023 da série multi-ano do qwen3:8b traz n=178 e 23,60%, contra n=175 e 23,43% na rodada usada na escada; o qwen3:14b coincide nas duas."
+ }
+}
